@@ -15,7 +15,7 @@ interface Message {
   editedAt: Date
   type: MessageType
   reactions: Reaction[]
-  attachment: Attachment
+  attachments: Attachment[]
   mentions: {
     members: {
       name: string

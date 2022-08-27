@@ -5,8 +5,9 @@ abstract class API<Events extends Object> {
   }
 
   protected socketEvent(raw: string) {
+    let message;
     try {
-      var message = JSON.parse(raw)
+      message = JSON.parse(raw)
     } catch (e) {
       return
     }
@@ -28,7 +29,7 @@ abstract class API<Events extends Object> {
   /**
    * Listens to events from the client
    * @param event Event name
-   * @param data Event data
+   * @param callback The callback to execute when this event is triggered
    */
   public on<T extends keyof Events>(
     event: T,
@@ -39,7 +40,7 @@ abstract class API<Events extends Object> {
     const listeners = this.listeners[event]
     listeners.push(callback)
 
-    console.debug(`[embed-api] on '${event}'`, callback)
+    console.debug(`[embed-api] on '${String(event)}'`, callback)
   }
 }
 
