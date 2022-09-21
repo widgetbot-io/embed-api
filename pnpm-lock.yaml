@@ -1,12 +1,20 @@
 lockfileVersion: 5.4
 
 specifiers:
+  '@types/node': ^18.7.18
   post-robot: ^8.0.28
 
 dependencies:
   post-robot: 8.0.31
 
+devDependencies:
+  '@types/node': 18.7.18
+
 packages:
+
+  /@types/node/18.7.18:
+    resolution: {integrity: sha512-m+6nTEOadJZuTPkKR/SYK3A2d7FZrgElol9UP1Kae90VVU4a6mxnPuLiIW1m4Cq4gZ/nWb9GrdVXJCoCazDAbg==}
+    dev: true
 
   /cross-domain-safe-weakmap/1.0.29:
     resolution: {integrity: sha512-VLoUgf2SXnf3+na8NfeUFV59TRZkIJqCIATaMdbhccgtnTlSnHXkyTRwokngEGYdQXx8JbHT9GDYitgR2sdjuA==}

@@ -1,8 +1,30 @@
 {
-  // "extends": "../../scripts/tsconfig.json",
   "compilerOptions": {
-    "outDir": "dist",
+    "module": "commonjs",
+    "target": "es2016",
     "lib": ["es6", "dom", "esnext.asynciterable"],
-    "declaration": true
-  }
+    "declaration": true,
+    "emitDecoratorMetadata": true,
+    "sourceMap": true,
+    "inlineSources": true,
+    "experimentalDecorators": true,
+    "skipDefaultLibCheck": true,
+    "skipLibCheck": true,
+    "outDir": "./dist",
+    "types": [
+      "node"
+    ],
+    "typeRoots": [
+      "node_modules/@types"
+    ]
+  },
+  "exclude": [
+    "node_modules",
+    "tests"
+  ],
+  "include": [
+    "./node_modules/@types/**/*.d.ts",
+    "./src/**/*.ts",
+    "./src/*.ts"
+  ]
 }
