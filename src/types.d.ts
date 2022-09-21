@@ -1,45 +1,50 @@
-import Message from './message'
+import { User } from './user'
+import { NewMessage_message } from './embed/NewMessage'
+import { MessageUpdated_messageUpdate } from './embed/MessageUpdated'
+import { NewDirectMessage_directMessage } from './embed/NewDirectMessage'
 
 export namespace IServer {
-  interface Reaction {
-    name: string
-    id: string
-    count: number
-  }
-
   export interface Options {
     id: string
     targetOrigin?: string
   }
 
   export interface Events {
-    signIn: {
-      name: string
-      avatar: string
-      type: 'bot' | 'sysadmin' | 'guest' | 'member'
-      id: string
-    }
+    signIn: User
+
     message: {
       channel: string
-      message: Message
+      message: NewMessage_message
     }
     messageUpdate: {
       channel: string
-      message: Message
+      message: MessageUpdated_messageUpdate
     }
     messageDelete: {
       channel: string
       id: string
     }
-    messageReactionAdd: {
+    messageDeleteBulk: {
       channel: string
-      id: string
-      reaction: Reaction
+      ids: string[]
     }
-    messageReactionRemove: {
-      channel: string
-      id: string
-      reaction: Reaction
+
+    directMessage: {
+      user: string
+      message: NewDirectMessage_directMessage
+    }
+
+    sentMessage: {
+      channel: string;
+      content: string;
+      thread?: string | null;
+      fileData?: string | null;
+      fileName?: string | null;
+      fileAlt?: string | null;
+    }
+    sentDirectMessage: {
+      user: string;
+      content: string;
     }
   }
 
