@@ -10,11 +10,13 @@
     "experimentalDecorators": true,
     "skipDefaultLibCheck": true,
     "skipLibCheck": true,
+    "baseUrl": ".",
     "outDir": "./dist",
     "types": [
       "node"
     ],
     "typeRoots": [
+      "src/**/*.d.ts",
       "node_modules/@types"
     ]
   },
@@ -23,8 +25,7 @@
     "tests"
   ],
   "include": [
-    "./node_modules/@types/**/*.d.ts",
     "./src/**/*.ts",
-    "./src/*.ts"
+    "./src/**/*.d.ts",
   ]
 }

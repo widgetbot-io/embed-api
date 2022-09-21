@@ -9,13 +9,14 @@
   "license": "MIT",
   "scripts": {
     "start": "tsc -w",
-    "build": "tsc"
+    "build": "tsc && copyfiles -u 1 \"src/**/*.d.ts\" dist"
   },
   "private": false,
   "dependencies": {
     "post-robot": "^8.0.28"
   },
   "devDependencies": {
-    "@types/node": "^18.7.18"
+    "@types/node": "^18.7.18",
+    "copyfiles": "^2.4.1"
   }
 }
