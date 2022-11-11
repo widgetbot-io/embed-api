@@ -58,12 +58,15 @@ export namespace IClient {
   }
 
   export interface Events {
-    sendMessage:
-      | string
-      | {
-          channel: string
-          message: string
-        }
+    sendMessage: string | {
+      channel: string
+      message: string
+    }
+
+    navigate: string | {
+      guild?: string;
+      channel?: string;
+    }
   }
 
   type Event = keyof Events
