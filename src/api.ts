@@ -28,7 +28,7 @@ abstract class API<Events extends Object> {
   /**
    * Listens to events from the client
    * @param event Event name
-   * @param data Event data
+   * @param callback Event callback
    */
   public on<T extends keyof Events>(
     event: T,
@@ -40,6 +40,22 @@ abstract class API<Events extends Object> {
     listeners.push(callback)
 
     console.debug(`[embed-api] on '${event}'`, callback)
+  }
+
+  /**
+   * Remove a listener from an event from the client
+   * @param event Event name
+   * @param callback Event callback
+   */
+  public removeListener<T extends keyof Events>(
+    event: T,
+    callback: (data: Events[T]) => void
+  ) {
+    if (!this.listeners[event]) return
+
+    this.listeners[event] = this.listeners[event].filter(x => x === callback);
+
+    console.debug(`[embed-api] removeListener '${event}'`, callback)
   }
 }
 
