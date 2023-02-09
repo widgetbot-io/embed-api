@@ -33,6 +33,9 @@ export namespace IServer {
     directMessage: {
       message: NewDirectMessage_directMessage
     }
+    unreadCountUpdate: {
+      count: number
+    }
 
     sentMessage: {
       channel: Channels_guild_channels;
