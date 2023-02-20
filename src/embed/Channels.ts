@@ -55,7 +55,23 @@ export interface Channels_guild_channels_VoiceChannel {
   nsfw: boolean;
 }
 
-export type Channels_guild_channels = Channels_guild_channels_TextChannel | Channels_guild_channels_AnnouncementChannel | Channels_guild_channels_VoiceChannel;
+export interface Channels_guild_channels_ThreadChannel_category {
+  __typename: "Category";
+  name: string;
+  position: number;
+}
+
+export interface Channels_guild_channels_ThreadChannel {
+  __typename: "ThreadChannel";
+  name: string;
+  id: string;
+  position: number;
+  category: Channels_guild_channels_ThreadChannel_category | null;
+  canSend: boolean;
+  nsfw: boolean;
+}
+
+export type Channels_guild_channels = Channels_guild_channels_TextChannel | Channels_guild_channels_AnnouncementChannel | Channels_guild_channels_VoiceChannel | Channels_guild_channels_ThreadChannel;
 
 export interface Channels_guild {
   __typename: "Guild";
