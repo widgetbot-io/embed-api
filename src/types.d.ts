@@ -70,6 +70,8 @@ export namespace IClient {
       guild?: string;
       channel?: string;
     }
+
+    logout: undefined
   }
 
   type Event = keyof Events

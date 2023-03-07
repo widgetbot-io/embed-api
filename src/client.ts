@@ -15,7 +15,7 @@ class Client extends API<IServer.Events> {
    * @param event Event name
    * @param data Event data
    */
-  public emit<T extends IClient.Event>(event: T, data: IClient.Events[T]) {
+  public emit<T extends IClient.Event>(event: T, data?: IClient.Events[T]) {
     if (!window.parent) return false
 
     const parsed = JSON.stringify({
