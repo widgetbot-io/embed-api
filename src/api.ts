@@ -39,7 +39,7 @@ abstract class API<Events extends Object> {
     const listeners = this.listeners[event]
     listeners.push(callback)
 
-    console.debug(`[embed-api] on '${event}'`, callback)
+    console.debug(`[embed-api] on '${String(event)}'`, callback)
   }
 
   /**
@@ -55,7 +55,7 @@ abstract class API<Events extends Object> {
 
     this.listeners[event] = this.listeners[event].filter(x => x === callback);
 
-    console.debug(`[embed-api] removeListener '${event}'`, callback)
+    console.debug(`[embed-api] removeListener '${String(event)}'`, callback)
   }
 }
 
