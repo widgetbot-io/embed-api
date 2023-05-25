@@ -4,7 +4,7 @@
   "description": "WidgetBot embed API",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
-  "repository": "https://github.com/widgetbot-io/widgetbot",
+  "repository": "https://github.com/widgetbot-io/embed-api",
   "author": "samdenty99",
   "license": "MIT",
   "scripts": {
