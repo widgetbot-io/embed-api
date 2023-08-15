@@ -16,7 +16,7 @@ class Server extends API<IClient.Events> {
    * @param event Event name
    * @param data Event data
    */
-  public emit<T extends IServer.Event>(event: T, data: IServer.Events[T]) {
+  public emit<T extends IServer.Event>(event: T, data?: IServer.Events[T]) {
     console.debug(`[embed-api] emit '${event}'`, data)
 
     if (!window.parent) return false
@@ -34,7 +34,7 @@ class Server extends API<IClient.Events> {
   }
 
   public client = {
-    emit: <T extends IClient.Event>(event: T, data: IClient.Events[T]) => {
+    emit: <T extends IClient.Event>(event: T, data?: IClient.Events[T]) => {
       const listeners: Function[] = this.listeners[event]
 
       if (listeners) {
