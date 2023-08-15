@@ -12,6 +12,8 @@ export namespace IServer {
 
   export interface Events {
     signIn: User
+    alreadySignedIn: User
+    signOut: undefined
 
     message: {
       channel: Channels_guild_channels

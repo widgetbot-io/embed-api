@@ -34,7 +34,7 @@ class Client extends API<IServer.Events> {
   }
 
   public server = {
-    emit: <T extends IServer.Event>(event: T, data: IServer.Events[T]) => {
+    emit: <T extends IServer.Event>(event: T, data?: IServer.Events[T]) => {
       const listeners: Function[] = this.listeners[event]
 
       if (listeners) {
