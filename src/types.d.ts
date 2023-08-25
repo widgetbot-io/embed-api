@@ -73,6 +73,7 @@ export namespace IClient {
       channel?: string;
     }
 
+    login: undefined
     logout: undefined
   }
 
