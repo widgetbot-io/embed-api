@@ -11,6 +11,7 @@ export namespace IServer {
   }
 
   export interface Events {
+    ready: undefined;
     signIn: User
     alreadySignedIn: User
     signOut: undefined
