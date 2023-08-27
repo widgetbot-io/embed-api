@@ -75,6 +75,7 @@ export namespace IClient {
 
     login: undefined
     logout: undefined
+    setToken: string;
   }
 
   type Event = keyof Events
