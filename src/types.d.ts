@@ -3,6 +3,7 @@ import { Channels_guild_channels } from './embed/Channels'
 import { NewMessage_message } from './embed/NewMessage'
 import { MessageUpdated_messageUpdate } from './embed/MessageUpdated'
 import { NewDirectMessage_directMessage } from './embed/NewDirectMessage'
+import { Channel, Message, UpdatedMessage } from './embed/nextjs'
 
 export namespace IServer {
   export interface Options {
@@ -17,19 +18,19 @@ export namespace IServer {
     signOut: undefined
 
     message: {
-      channel: Channels_guild_channels
-      message: NewMessage_message
+      channel?: Channels_guild_channels | Channel
+      message: NewMessage_message | Message
     }
     messageUpdate: {
-      channel: Channels_guild_channels
-      message: MessageUpdated_messageUpdate
+      channel?: Channels_guild_channels | Channel
+      message: MessageUpdated_messageUpdate | Partial<UpdatedMessage>
     }
     messageDelete: {
-      channel: Channels_guild_channels
+      channel?: Channels_guild_channels | Channel
       id: string
     }
     messageDeleteBulk: {
-      channel: Channels_guild_channels
+      channel?: Channels_guild_channels | Channel
       ids: string[]
     }
 
@@ -41,7 +42,7 @@ export namespace IServer {
     }
 
     sentMessage: {
-      channel: Channels_guild_channels;
+      channel?: Channels_guild_channels | Channel;
       content: string;
       thread?: string | null;
       fileData?: string | null;
