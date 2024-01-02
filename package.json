@@ -1,6 +1,6 @@
 {
   "name": "@widgetbot/embed-api",
-  "version": "1.2.14",
+  "version": "1.2.15",
   "description": "WidgetBot embed API",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
