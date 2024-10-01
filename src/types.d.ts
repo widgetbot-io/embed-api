@@ -17,6 +17,7 @@ export namespace IServer {
     alreadySignedIn: User;
     signOut: undefined;
 
+    color: [variable: "background" | "accent" | "primary", val: string];
     message: {
       channel?: Channels_guild_channels | Channel;
       message: NewMessage_message | Message;
@@ -78,10 +79,10 @@ export namespace IClient {
           guild?: string;
           channel?: string;
         };
-    color: [variable: "background" | "accent" | "primary", val: string];
     login: undefined;
     logout: undefined;
     setToken: string;
+    color: [variable: "background" | "accent" | "primary", val: string];
   }
 
   type Event = keyof Events;

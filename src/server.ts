@@ -1,14 +1,14 @@
-import API from './api'
-import { IClient, IServer } from './types'
+import API from "./api";
+import { IClient, IServer } from "./types";
 
 class Server extends API<IClient.Events> {
-  targetOrigin = '*'
+  targetOrigin = "*";
 
   constructor(options: IServer.Options) {
-    super()
-    Object.assign(this, options)
+    super();
+    Object.assign(this, options);
 
-    window.addEventListener('message', ({ data }) => this.socketEvent(data))
+    window.addEventListener("message", ({ data }) => this.socketEvent(data));
   }
 
   /**
@@ -17,31 +17,31 @@ class Server extends API<IClient.Events> {
    * @param data Event data
    */
   public emit<T extends IServer.Event>(event: T, data?: IServer.Events[T]) {
-    console.debug(`[embed-api] emit '${event}'`, data)
+    console.debug(`[embed-api] emit '${event}'`, data);
 
-    if (!window.parent) return false
+    if (!window.parent) return false;
 
     const parsed = JSON.stringify({
       widgetbot: true,
       id: this.id,
       event,
-      data
-    })
+      data,
+    });
 
-    window.parent.postMessage(parsed, this.targetOrigin)
+    window.parent.postMessage(parsed, this.targetOrigin);
 
-    return true
+    return true;
   }
 
   public client = {
     emit: <T extends IClient.Event>(event: T, data?: IClient.Events[T]) => {
-      const listeners: Function[] = this.listeners[event]
+      const listeners: Function[] = this.listeners[event];
 
       if (listeners) {
-        listeners.forEach(listener => listener(data))
+        listeners.forEach((listener) => listener(data));
       }
-    }
-  }
+    },
+  };
 }
 
-export default Server
+export default Server;
