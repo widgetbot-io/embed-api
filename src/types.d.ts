@@ -78,7 +78,7 @@ export namespace IClient {
           guild?: string;
           channel?: string;
         };
-    color: [variable: string, val: string];
+    color: [variable: "background" | "accent" | "primary", val: string];
     login: undefined;
     logout: undefined;
     setToken: string;

@@ -1,14 +1,14 @@
 abstract class API<Events extends Object> {
-  id: string
+  id: string;
   listeners = {} as {
-    [event in keyof Events]: ((data: Events[event]) => void)[]
-  }
+    [event in keyof Events]: ((data: Events[event]) => void)[];
+  };
 
   protected socketEvent(raw: string) {
     try {
-      var message = JSON.parse(raw)
+      var message = JSON.parse(raw);
     } catch (e) {
-      return
+      return;
     }
 
     if (
@@ -16,11 +16,11 @@ abstract class API<Events extends Object> {
       message.widgetbot === true &&
       message.id === this.id
     ) {
-      const { event, data } = message
-      const listeners: Function[] = this.listeners[event]
+      const { event, data } = message;
+      const listeners: Function[] = this.listeners[event];
 
       if (listeners) {
-        listeners.forEach(listener => listener(data))
+        listeners.forEach((listener) => listener(data));
       }
     }
   }
@@ -34,12 +34,12 @@ abstract class API<Events extends Object> {
     event: T,
     callback: (data: Events[T]) => void
   ) {
-    if (!this.listeners[event]) this.listeners[event] = []
+    if (!this.listeners[event]) this.listeners[event] = [];
 
-    const listeners = this.listeners[event]
-    listeners.push(callback)
+    const listeners = this.listeners[event];
+    listeners.push(callback);
 
-    console.debug(`[embed-api] on '${String(event)}'`, callback)
+    console.debug(`[embed-api] on '${String(event)}'`, callback);
   }
 
   /**
@@ -51,12 +51,12 @@ abstract class API<Events extends Object> {
     event: T,
     callback: (data: Events[T]) => void
   ) {
-    if (!this.listeners[event]) return
+    if (!this.listeners[event]) return;
 
-    this.listeners[event] = this.listeners[event].filter(x => x === callback);
+    this.listeners[event] = this.listeners[event].filter((x) => x === callback);
 
-    console.debug(`[embed-api] removeListener '${String(event)}'`, callback)
+    console.debug(`[embed-api] removeListener '${String(event)}'`, callback);
   }
 }
 
-export default API
+export default API;
