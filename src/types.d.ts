@@ -16,8 +16,10 @@ export namespace IServer {
     signIn: User;
     alreadySignedIn: User;
     signOut: undefined;
+    loginRequested: undefined;
 
     color: [variable: "background" | "accent" | "primary", val: string];
+
     message: {
       channel?: Channels_guild_channels | Channel;
       message: NewMessage_message | Message;
@@ -82,6 +84,7 @@ export namespace IClient {
     login: undefined;
     logout: undefined;
     setToken: string;
+    guildLogin: string;
     color: [variable: "background" | "accent" | "primary", val: string];
   }
 
