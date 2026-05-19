@@ -24,6 +24,10 @@ export namespace IServer {
       channel?: Channels_guild_channels | Channel;
       message: NewMessage_message | Message;
     };
+    latestMessage: {
+      channel?: Channels_guild_channels | Channel;
+      message: NewMessage_message | Message;
+    };
     messageUpdate: {
       channel?: Channels_guild_channels | Channel;
       message: MessageUpdated_messageUpdate | Partial<UpdatedMessage>;
