@@ -47,6 +47,9 @@ export namespace IServer {
     unreadCountUpdate: {
       count: number;
     };
+    unreadDirectMessageCount: {
+      count: number;
+    };
 
     sentMessage: {
       channel?: Channels_guild_channels | Channel;
@@ -89,6 +92,7 @@ export namespace IClient {
     logout: undefined;
     setToken: string;
     guildLogin: string;
+    setChatVisible: boolean;
     color: [variable: "background" | "accent" | "primary", val: string];
   }
 
