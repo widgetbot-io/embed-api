@@ -4,7 +4,10 @@ abstract class API<Events extends Object> {
     [event in keyof Events]: ((data: Events[event]) => void)[];
   };
 
-  protected socketEvent(raw: string) {
+  protected socketEvent(
+    raw: string,
+    accepts?: (event: string, data: unknown) => boolean
+  ) {
     try {
       var message = JSON.parse(raw);
     } catch (e) {
@@ -17,6 +20,8 @@ abstract class API<Events extends Object> {
       message.id === this.id
     ) {
       const { event, data } = message;
+      if (typeof event !== "string" || (accepts && !accepts(event, data))) return;
+
       const listeners: Function[] = this.listeners[event];
 
       if (listeners) {

@@ -17,6 +17,7 @@ export namespace IServer {
     alreadySignedIn: User;
     signOut: undefined;
     loginRequested: undefined;
+    imageClick: { url: string };
 
     color: [variable: "background" | "accent" | "primary", val: string];
 
@@ -93,6 +94,7 @@ export namespace IClient {
     setToken: string;
     guildLogin: string;
     setChatVisible: boolean;
+    setHostImagePreview: boolean;
     color: [variable: "background" | "accent" | "primary", val: string];
   }
 
